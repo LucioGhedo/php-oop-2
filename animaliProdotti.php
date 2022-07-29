@@ -1,6 +1,11 @@
 <?php
 
+require_once __DIR__ . '/NewTrait.php';
+
 class prodottiAnimali {
+    
+    use NewTrait;
+
     public $nome;
 
     public $prezzo;

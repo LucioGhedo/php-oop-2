@@ -1,6 +1,6 @@
 <?php
 class Utente {
-    public $nome;
+    public $nome = 'Anonimo';
     public $email;
     public $sconto = 0;
     public $saldo = 0;
@@ -25,7 +25,7 @@ class Utente {
         $priceToPay = $this->calcPrice();
         
         if($this->saldo < $priceToPay) {
-            die('Insufficent fund');
+            throw new Exception("user: $this->nome = Fund not sufficent");
         } else {
             return 'Payment OK';
         }

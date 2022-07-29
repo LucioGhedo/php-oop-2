@@ -18,11 +18,25 @@ $lucio->addProd($gioco2);
 
 $lucio->saldo = 50;
 var_dump($lucio);
-echo $lucio->pay();
+try {
+    if($lucio->pay()) {
+        echo "<h2>Acquisto completato con successo.</h2>";
+    }
+} catch(Exception $e) {
+    error_log($e->getMessage());
+    echo "Operazione non riuscita. Controlla il saldo e riprova";
+}
 
 $anon1 = new AnonUser();
 $anon1->addProd($gioco2);
 $anon1->addProd($pappa1);
 var_dump($anon1);
-echo $anon1->pay();
+try {
+    if($anon1->pay()) {
+        echo "<h2>Acquisto completato con successo.</h2>";
+    }
+} catch(Exception $e) {
+    error_log($e->getMessage());
+    echo "Operazione non riuscita. Controlla il saldo e riprova";
+}
 ?>
